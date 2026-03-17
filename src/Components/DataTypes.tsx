@@ -29,6 +29,20 @@ function DataTypes(){
     }
     let user : User_type = {email : "user@gmail.com" , password : 12345678};
 
+    //function
+    function product(num1 : number, num2 : number) : number {
+        return num1*num2;
+    }
+
+    //Props
+    type prop_type = {
+        name : string
+    }
+
+    function getname({name} : prop_type){
+        return {name};
+    }
+
     return(
         <>
             <h2>Name : {name}</h2>
