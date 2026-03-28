@@ -5,12 +5,16 @@ import './Form.css';
 function Form(){
 
     //validation
+    /* ?-optional
+        This object can have name, email, and password — but none of them are required. If they are present, they must be text (strings)
+     */
     type value_type = {
         name ?: string;
         email ?: string;
         password ?: string;
     };
 
+    //<string> means the state will always be a string
     const[name, setname] = useState<string>("");
     const[email,setemail] = useState<string>("");
     const[password, setpassword] = useState<string>("");
@@ -73,7 +77,6 @@ function Form(){
 
     return(
         <>
-
             <h2>FORM VALIDATION</h2>
             <hr></hr>
             {success && <p>{success}</p>}
@@ -82,6 +85,7 @@ function Form(){
                     <label>Name : </label>
                     <input type="text" placeholder="John Doe" value={name} onChange={(e) => setname(e.target.value)}></input>
                     {errors.name && <p>{errors.name}</p>}
+                    {/* name is a property key of the errors object */}
 
                     <label>Email : </label>
                     <input type="email" placeholder="example@gmail.com" value={email} onChange={(e) => setemail(e.target.value)}>
